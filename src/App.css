@@ -62,5 +62,32 @@ html {
   text-align: center;
 }
 
+.travelPage {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.travelHeader {
+  width: 100vw;
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 33vh;
+  background-image: url("./backgroundImage.jpg");
+  background-size: 100% auto;
+  opacity: 0.75;
+}
+
 .logo {
+  z-index: 1;
 }
