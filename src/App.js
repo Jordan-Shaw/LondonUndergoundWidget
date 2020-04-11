@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Router } from "@reach/router";
 import Home from './components/Home';
+import Travel from './components/Travel';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       </header>
       <Router>
         <Home path="/"/>
+        <Travel path="/travel"/>
       </Router>
     </div>
   );
