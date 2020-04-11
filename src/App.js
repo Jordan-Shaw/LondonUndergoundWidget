@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import { Router } from "@reach/router";
-import Home from './components/Home';
-import Travel from './components/Travel';
+import Home from './pages/Home';
+import Travel from './pages/Travel';
 
 function App() {
   return (
