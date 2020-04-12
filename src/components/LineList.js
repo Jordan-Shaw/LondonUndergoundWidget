@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as api from "../api";
+import LineCard from "./LineCard";
 
 export default function LineList() {
   const [loading, setLoading] = useState(true);
@@ -44,11 +45,12 @@ export default function LineList() {
           <tbody>
             {lines.map((line) => {
               return (
-                <tr>
-                  <td>{line.name}</td>
-                  <td>Status goes here</td>
-                  <td>Link</td>
-                </tr>
+                <LineCard line={line} key={line.id} />
+                // <tr>
+                //   <td>{line.name}</td>
+                //   <td>Status goes here</td>
+                //   <td>Link</td>
+                // </tr>
               );
             })}
           </tbody>
