@@ -3,6 +3,7 @@ import './App.css';
 import { Router } from "@reach/router";
 import Home from './pages/Home';
 import Travel from './pages/Travel';
+import SingleLine from './pages/SingleLine';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Router>
         <Home path="/"/>
         <Travel path="/travel"/>
+        <SingleLine path="/travel/:id"/>
       </Router>
     </div>
   );

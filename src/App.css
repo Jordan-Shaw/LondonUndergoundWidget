@@ -4,6 +4,11 @@ html {
   /* font-family: "Hammersmith One", sans-serif; */
 }
 
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
 .homePage {
   width: 100vw;
   height: 100vh;
@@ -13,13 +18,13 @@ html {
 }
 
 .homeBackground {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   background-image: url("./backgroundImage.jpg");
   background-size: 100vh auto;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: center;
   opacity: 0.75;
   width: 100vw;
   height: 100vh;
@@ -44,7 +49,8 @@ html {
   width: 80%;
 }
 
-.enterButton {
+.navigateButton {
+  position: absolute;
   width: 75vw;
   height: 5vh;
   background-color: red;
@@ -54,6 +60,11 @@ html {
   font-family: "Hammersmith One", sans-serif;
   color: white;
   text-align: center;
+  bottom: 3vh;
+}
+
+.navigateButton:hover {
+  box-shadow: black;
 }
 
 .enterButtonText {
@@ -88,10 +99,12 @@ html {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 33vh;
+  height: 100vh;
   background-image: url("./backgroundImage.jpg");
   background-size: 100% auto;
   opacity: 0.75;
+  z-index: 0;
+  background-position: center;
 }
 
 .logo {
@@ -109,6 +122,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 1;
 }
 
 .lineList {
@@ -142,6 +156,7 @@ tr:nth-child(even) {
 }
 
 .tableBodyScroll tbody {
+  background-color: white;
   display: block;
   max-height: 50vh;
   overflow-y: scroll;
@@ -158,4 +173,65 @@ tbody {
   border: solid 2px black;
   border-radius: 0px 0px 10px 10px;
   border-top: none;
+}
+
+.singleLinePage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lineContentContainer {
+  position: absolute;
+  top: 38vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90vw;
+  height: auto;
+  max-height: 50vh;
+  flex-grow: none;
+  background-color: white;
+  border-radius: 35px 15px 35px 15px;
+  border: black 2pt solid;
+  z-index: 1;
+  overflow-y: scroll;
+}
+
+.singleLineBackground {
+  background-image: url("./backgroundImage.jpg");
+  background-size: 100vw auto;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-position: center;
+  opacity: 0.75;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.reason {
+  width: 90%;
+}
+
+@media only screen and (max-width: 620px) {
+  .singleLineBackground,
+  .headerBackground {
+    background-size: auto 100vh;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .homeBackground,
+  .headerBackground {
+    background-size: 100vw auto;
+  }
+  .navigateButton {
+    width: 25vw;
+  }
 }

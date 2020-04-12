@@ -14,7 +14,7 @@ export default function Home() {
           Helping you get where you need to go...
         </h2>
         <button
-          className="enterButton"
+          className="navigateButton"
           onClick={() => {
             navigate("/travel");
           }}
