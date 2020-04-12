@@ -4,15 +4,15 @@ import LineList from "../components/LineList";
 
 export default function Travel() {
   return (
-    <div className="travelPage">
-      <div className="travelHeader">
-        <div className="headerBackground"></div>
-        <img src={logo} alt="Widget Logo" className="logo" />
+      <div className="travelPage">
+        <div className="travelHeader">
+          <div className="headerBackground"></div>
+          <img src={logo} alt="Widget Logo" className="logo" />
+        </div>
+        <div className="contentContainer">
+          <p id="lastUpdated">Last updated:</p>
+          <LineList />
+        </div>
       </div>
-      <div className="contentContainer">
-        <p>Last updated:</p>
-        <LineList/>
-      </div>
-    </div>
   );
 }

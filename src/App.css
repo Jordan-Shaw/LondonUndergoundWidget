@@ -40,7 +40,7 @@ html {
   color: white;
   text-align: right;
   flex-grow: 1;
-  margin-top: 10%;
+  /* margin-top: 10%; */
   width: 80%;
 }
 
@@ -72,6 +72,9 @@ html {
 }
 
 .travelHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 33vh;
   display: flex;
@@ -81,7 +84,7 @@ html {
 }
 
 .headerBackground {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -92,12 +95,15 @@ html {
 }
 
 .logo {
+  height: 30vh;
+  width: auto;
   z-index: 1;
 }
 
 .contentContainer {
+  position: absolute;
   width: 90vw;
-  height: 67vh;
+  height: 66vh;
   position: absolute;
   top: 33vh;
   display: flex;
@@ -108,5 +114,48 @@ html {
 .lineList {
   height: 90%;
   width: 100%;
-  background-color: brown;
+  /* background-color: brown; */
+}
+
+table {
+  border-spacing: 0;
+}
+
+td {
+  padding: 8px;
+}
+
+th {
+  text-align: left;
+  color: white;
+  padding: 8px;
+}
+
+thead {
+  border-radius: 10px 10px 0px 0px;
+  background-color: red;
+  border: 2px black solid;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tableBodyScroll tbody {
+  display: block;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.tableBodyScroll thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+tbody {
+  border: solid 2px black;
+  border-radius: 0px 0px 10px 10px;
+  border-top: none;
 }
