@@ -21,14 +21,16 @@ export default function LineList() {
   }, []);
 
   useEffect(() => {
-    setLoading(false);
+    if (typeof lines === "object") {
+      setLoading(false);
+    }
   }, [lines]);
 
   console.log(loading);
 
   if (loading) {
     return <h2>Loading...</h2>;
-  } else if (lines) {
+  } else {
     return (
       <div className="lineList">
         <table>
@@ -53,7 +55,5 @@ export default function LineList() {
         </table>
       </div>
     );
-  } else {
-    return <p>Shit went wrong yo</p>;
   }
 }
