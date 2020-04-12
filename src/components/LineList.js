@@ -30,8 +30,6 @@ export default function LineList() {
     }
   }, [lines]);
 
-  console.log(loading);
-
   if (loading) {
     return <h2>Loading...</h2>;
   } else {
