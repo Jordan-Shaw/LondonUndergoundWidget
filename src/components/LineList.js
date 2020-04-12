@@ -7,6 +7,7 @@ export default function LineList() {
   // const [updateRequired, setUpdateRequired] = useState(true);
   const [lines, setLines] = useState();
 
+  // api request on render
   useEffect(() => {
     console.log("sent request");
     async function fetchData() {
@@ -21,6 +22,8 @@ export default function LineList() {
     fetchData();
   }, []);
 
+
+  // update loading once response from api request received and assigned
   useEffect(() => {
     if (typeof lines === "object") {
       setLoading(false);
@@ -34,7 +37,7 @@ export default function LineList() {
   } else {
     return (
       <div className="lineList">
-        <table>
+        <table className="tableBodyScroll">
           <thead>
             <tr>
               <th>Line</th>
@@ -46,11 +49,6 @@ export default function LineList() {
             {lines.map((line) => {
               return (
                 <LineCard line={line} key={line.id} />
-                // <tr>
-                //   <td>{line.name}</td>
-                //   <td>Status goes here</td>
-                //   <td>Link</td>
-                // </tr>
               );
             })}
           </tbody>
