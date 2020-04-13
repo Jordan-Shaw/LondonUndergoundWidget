@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from "react";
 import * as api from "../api";
 import LineCard from "./LineCard";
+import UpdateTime from "./UpdateTime";
+import RefreshButton from "./RefreshButton";
 
 export default function LineList() {
   const [loading, setLoading] = useState(true);
-  // const [updateRequired, setUpdateRequired] = useState(true);
   const [lines, setLines] = useState();
 
   // api request on render
+  // if (loading) in place to make new request when refresh button used
   useEffect(() => {
-    console.log("sent request");
     async function fetchData() {
       try {
-        const response = await api.getLineStatuses();
-        console.log("response received", response);
-        setLines(response.data);
+        if (loading) {
+          console.log("sent request");
+          const response = await api.getLineStatuses();
+          console.log("response received", response);
+          setLines(response.data);
+        }
       } catch (err) {
         console.log(err);
       }
     }
     fetchData();
-  }, []);
-
+  }, [loading]);
 
   // update loading once response from api request received and assigned
   useEffect(() => {
@@ -30,24 +33,26 @@ export default function LineList() {
     }
   }, [lines]);
 
+
+
   if (loading) {
     return <h2>Loading...</h2>;
   } else {
     return (
       <div className="lineList">
+        <UpdateTime loading={loading}/>
+        <RefreshButton setLoading={setLoading}/>
         <table className="tableBodyScroll">
           <thead>
             <tr>
-              <th>Line</th>
+              <th className="lineName">Line</th>
               <th>Status</th>
               <th>More Info</th>
             </tr>
           </thead>
           <tbody>
             {lines.map((line) => {
-              return (
-                <LineCard line={line} key={line.id} />
-              );
+              return <LineCard line={line} key={line.id} />;
             })}
           </tbody>
         </table>
