@@ -4,6 +4,8 @@ import logo from "../logo.svg";
 import { useNavigate } from "@reach/router";
 import UpdateTime from "../components/UpdateTime";
 import RefreshButton from "../components/RefreshButton";
+import anime from "animejs/lib/anime.es.js";
+
 
 const { checkLineStatuses } = require("../utils.js");
 
@@ -36,11 +38,24 @@ export default function SingleLine(props) {
     }
   }, [lineData]);
 
+  useEffect(() => {
+    if(!loading) {
+      setTimeout(() => {
+        anime({
+          targets: [".singleLineContentContainer"],
+          easing: "easeInOutQuad",
+          duration: 1000,
+          opacity: 1
+        });
+      }, 500)
+    }
+  }, [loading])
+
   let content;
 
   if (loading) {
     content = (
-      <div className="lineContentContainer">
+      <div className="singleLineContentContainer">
         <h2>Loading...</h2>;
       </div>
     );
@@ -49,12 +64,11 @@ export default function SingleLine(props) {
     const { statusSeverityDescription, reason } = lineData[0].lineStatuses[
       lineStatusIndex
     ];
-
     content = (
-      <div className="lineContentContainer">
-        <h1>{lineData[0].name}</h1>
-        <h2>{statusSeverityDescription}</h2>
-        <p className="reason">{reason}</p>
+      <div className="singleLineContentContainer">
+        <h1 id="singleLineName">{lineData[0].name}</h1>
+        <h2 id="singleLineSeverity">{statusSeverityDescription}</h2>
+        <p id="singleLineReason">{reason}</p>
       </div>
     );
   }
