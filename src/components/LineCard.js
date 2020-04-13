@@ -8,8 +8,10 @@ export default function LineCard(props) {
   const lineStatusIndex = checkLineStatuses(line);
 
   return (
-    <tr>
-      <td>{name}</td>
+    <tr className="lineCard">
+      <td id={id} className="lineName">
+        {name}
+      </td>
       <td>{lineStatuses[lineStatusIndex].statusSeverityDescription}</td>
       <td>
         <Link to={`${id}`}>Click here</Link>
