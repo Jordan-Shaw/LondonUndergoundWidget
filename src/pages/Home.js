@@ -10,9 +10,9 @@ export default function Home() {
 
       <div className="homeContentContainer">
         <img src={logo} className="logo" alt="Widget Logo" />
-        <h2 className="homeSubheading">
-          Helping you get where you need to go...
-        </h2>
+        <div className="homeSubheading">
+          <h2 className="subheadingText">Helping you check the status of the London Underground lines</h2>
+        </div>
         <button
           className="navigateButton"
           onClick={() => {
