@@ -10,7 +10,6 @@ export default function Travel() {
           <img src={logo} alt="Widget Logo" className="logo" />
         </div>
         <div className="contentContainer">
-          <p id="lastUpdated">Last updated:</p>
           <LineList />
         </div>
       </div>
