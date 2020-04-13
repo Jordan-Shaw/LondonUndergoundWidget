@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import * as api from "../api";
 import logo from "../logo.svg";
 import { useNavigate } from "@reach/router";
+import UpdateTime from "../components/UpdateTime";
+import RefreshButton from "../components/RefreshButton";
 
 const { checkLineStatuses } = require("../utils.js");
 
@@ -15,14 +17,18 @@ export default function SingleLine(props) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await api.getSingleLineStatus(id);
-        setLineData(response.data);
+        if (loading) {
+          console.log("sent request");
+          const response = await api.getSingleLineStatus(id);
+          console.log("response received", response);
+          setLineData(response.data);
+        }
       } catch (err) {
         console.log(err);
       }
     }
     fetchData();
-  }, [id]);
+  }, [id, loading]);
 
   useEffect(() => {
     if (typeof lineData === "object") {
@@ -60,15 +66,21 @@ export default function SingleLine(props) {
         <div className="travelHeader">
           <img src={logo} alt="Widget Logo" className="logo" />
         </div>
-        {content}
-        <button
-          className="navigateButton"
-          onClick={() => {
-            navigate("/travel");
-          }}
-        >
-          Go back
-        </button>
+        <div className="singleLinePageContentContainer">
+          <div className="updateContainer">
+            <UpdateTime loading={loading} />
+            <RefreshButton setLoading={setLoading} />
+          </div>
+          {content}
+          <button
+            className="navigateButton"
+            onClick={() => {
+              navigate("/travel");
+            }}
+          >
+            Go back
+          </button>
+        </div>
       </div>
     </div>
   );
