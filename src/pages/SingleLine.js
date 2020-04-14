@@ -20,9 +20,7 @@ export default function SingleLine(props) {
     async function fetchData() {
       try {
         if (loading) {
-          console.log("sent request");
           const response = await api.getSingleLineStatus(id);
-          console.log("response received", response);
           setLineData(response.data);
         }
       } catch (err) {

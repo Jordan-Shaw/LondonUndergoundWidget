@@ -9,15 +9,11 @@ export default function LineList() {
   const [loading, setLoading] = useState(true);
   const [lines, setLines] = useState();
 
-  // api request on render
-  // if (loading) in place to make new request when refresh button used
   useEffect(() => {
     async function fetchData() {
       try {
         if (loading) {
-          console.log("sent request");
           const response = await api.getLineStatuses();
-          console.log("response received", response);
           setLines(response.data);
         }
       } catch (err) {
@@ -27,14 +23,11 @@ export default function LineList() {
     fetchData();
   }, [loading]);
 
-  // update loading once response from api request received and assigned
   useEffect(() => {
     if (typeof lines === "object") {
       setLoading(false);
     }
   }, [lines]);
-
-  // LineCard animation on entry
 
   useEffect(() => {
     anime({

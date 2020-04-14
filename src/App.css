@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin&family=Hammersmith+One&display=swap");
 
-html {
-  /* font-family: "Hammersmith One", sans-serif; */
-}
-
 .App {
   width: 100vw;
   height: 100vh;
@@ -43,7 +39,6 @@ html {
 .homeSubheading {
   font-family: "Hammersmith One", sans-serif;
   flex-grow: 1;
-  /* margin-top: 10%; */
   width: fit-content;
   margin: 5%;
   opacity: 0;
@@ -151,7 +146,6 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  /* background-color: brown; */
 }
 
 .lineCard {
@@ -241,11 +235,9 @@ tbody {
   align-items: center;
   width: 90vw;
   height: 40vh;
-  /* max-height: 50vh; */
   flex-grow: none;
   background-color: white;
   border-radius: 15px 15px 15px 15px;
-  /* border: black 2pt solid; */
   box-shadow: 0 0 3px black;
   z-index: 1;
   overflow-y: scroll;
@@ -300,10 +292,6 @@ tbody {
 }
 
 @media only screen and (max-width: 630px) {
-  /* .App {
-    height: 110vh;
-  } */
-
   .tableBodyScroll tbody {
     max-height: 40vh;
     overflow-y: scroll;
@@ -314,17 +302,9 @@ tbody {
   .homeBackground {
     background-size: auto 110vh;
   }
-
-  /* .navigateButton {
-    width: 75vw;
-  } */
 }
 
 @media only screen and (min-width: 720) {
-  /* .homeBackground,
-  .headerBackground {
-    background-size: 100vw auto;
-  } */
   .navigateButton {
     width: 25vw;
   }
